@@ -22,11 +22,12 @@ class App extends Component {
 
   componentDidMount() {
     const contacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contacts);
-    console.log(parsedContacts);
-    this.setState({
-      contacts: parsedContacts,
-    });
+    if (contacts) {
+      const parsedContacts = JSON.parse(contacts);
+      this.setState({
+        contacts: parsedContacts,
+      });
+    }
   }
 
   handleDelete = id => {
